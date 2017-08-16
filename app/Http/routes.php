@@ -10,7 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/', [
+	'uses' => 'BlogController@index'
+]);
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/post', function () {
+    return view('blog.post');
 });
