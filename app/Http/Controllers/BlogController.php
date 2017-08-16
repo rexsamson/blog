@@ -12,7 +12,10 @@ class BlogController extends Controller
 
     public function index()
     {
-        $posts = Post::with('author')->latestfirst()->simplePaginate($this->pagelimit);
+        $posts = Post::with('author')
+        	->latestfirst()
+        	->published()
+        	->simplePaginate($this->pagelimit);
         return view("blog.index", compact('posts'));
     }
 }
